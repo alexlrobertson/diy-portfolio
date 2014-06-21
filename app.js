@@ -1,9 +1,11 @@
-function clickButton(message) {
-    alert(message);
-}
+var app = angular.module('mySite', []);
 
-var button = document.querySelector('.click-me');
+app.controller('FormController', ['$scope', function ($scope) {
+    $scope.name = '';
+    $scope.email = '';
+    $scope.mesage = '';
 
-button.addEventListener('click', function () {
-    clickButton('I was clicked using an event handler!');
-});
+    $scope.submit = function () {
+        console.log($scope.name, $scope.email, $scope.mesage);
+    };
+}]);
