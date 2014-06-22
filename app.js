@@ -10,6 +10,14 @@ app.controller('MainController', ['$scope', function ($scope) {
     }];
 }]);
 
+app.controller('ProjectDetailController', ['$scope', '$sce', function ($scope, $sce) {
+    $scope.project = {
+        id:      1,
+        name:    'Project 1',
+        content: $sce.trustAsHtml('<p>Hello world!</p>')
+    };
+}]);
+
 app.controller('FormController', ['$scope', function ($scope) {
     $scope.name = '';
     $scope.email = '';

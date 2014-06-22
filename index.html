@@ -74,23 +74,10 @@
             </ul>
         </div>
 
-        <div>
-            <h2>Project 1</h2>
+        <div ng-controller="ProjectDetailController">
+            <h2 ng-bind="project.name"></h2>
 
-            <img src="http://placehold.it/1600x720"
-                alt="Big Project Image" class="img-responsive">
-
-            <p>Caption lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-
-            <img src="http://placehold.it/1600x720"
-                alt="Big Project Image" class="img-responsive">
-
-            <p>Caption lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-
-            <img src="http://placehold.it/1600x720"
-                alt="Big Project Image" class="img-responsive">
-
-            <p>Caption lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>`
+            <div ng-bind-html="project.content"></div>
         </div>
 
         <div class="row">
