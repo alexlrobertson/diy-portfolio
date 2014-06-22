@@ -1,6 +1,33 @@
-var app = angular.module('mySite', []);
+var app = angular.module('mySite', ['ngRoute']);
+
+app.config([
+    '$routeProvider',
+    function($routeProvider) {
+        $routeProvider
+            .when('/!/', {
+                template:     '{{projects}}',
+                controller:   'ProjectController'
+            })
+            .when('/!/project/:id', {
+                template:     '{{project}}',
+                controller:   'ProjectDetailController'
+            })
+            .otherwise({
+                redirectTo: '/!/'
+            });
+}]);
 
 app.controller('MainController', ['$scope', function ($scope) {
+    $scope.projects = [{
+        id:   1,
+        name: 'Project 1'
+    }, {
+        id:   2,
+        name: 'Project 2'
+    }];
+}]);
+
+app.controller('ProjectController', ['$scope', function ($scope) {
     $scope.projects = [{
         id:   1,
         name: 'Project 1'
