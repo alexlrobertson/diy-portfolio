@@ -47,13 +47,28 @@ app.controller('ProjectController', ['$scope', function ($scope) {
     }];
 }]);
 
-app.controller('ProjectDetailController', ['$scope', '$sce', function ($scope, $sce) {
-    $scope.project = {
-        id:      1,
-        name:    'Project 1',
-        content: $sce.trustAsHtml('<p>Hello world!</p>')
+app.filter('getById', function() {
+    return function(array, id) {
+        var index = 0;
+
+        for (; index < array.length; index += 1) {
+            if (+array[index].id === +id) {
+                return array[index];
+            }
+        }
+        return null;
     };
-}]);
+});
+
+app.controller('ProjectDetailController', [
+    '$scope',
+    '$sce',
+    '$routeParams',
+    '$filter',
+    function ($scope, $sce, $routeParams, $filter) {
+        $scope.project = $filter('getById')($scope.$parent.projects, $routeParams.id);
+    }
+]);
 
 app.controller('FormController', ['$scope', function ($scope) {
     $scope.name = '';
