@@ -20,6 +20,9 @@
                 <li>
                     <a href="#!/about-me">About Me</a>
                 </li>
+                <li>
+                    <a href="#!/contact">Contact</a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -28,66 +31,6 @@
         <h1>Hello World</h1>
 
         <div ng-view></div>
-
-        <div>
-            <div class="row">
-                <form class="form col-md-6" role="form"
-                    ng-controller="FormController" ng-submit="submit()">
-                    <div class="form-group">
-                        <label for="email-input">Email</label>
-                        <input type="email" class="form-control" id="email-input"
-                            name="email" placeholder="your@email.com"
-                            ng-model="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="name-input">Name</label>
-                        <input type="name" class="form-control" id="name-input"
-                            name="text" placeholder="Full Name"
-                            ng-model="name">
-                    </div>
-                    <div class="form-group">
-                        <label for="message-input">Message</label>
-                        <textarea name="" id="message-input"
-                            placeholder="Your mesage goes here."
-                            cols="30" rows="10" class="form-control"
-                            ng-model="message"></textarea>
-                    </div>
-                    <button class="btn btn-primary">Send</button>
-                </form>
-            </div>
-        </div>
-
-        <div>
-            <h2>About Me</h2>
-
-            <p>Lorem ipsum dolor sit amet, <em>consectetur adipisicing</em> elit. Laboriosam sed nemo magni dolorum voluptas, aut est? Unde quas ipsa, pariatur esse sint ducimus corporis expedita.</p>
-
-            <h3>Education</h3>
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-
-            <ul>
-                <li><strong>Lorem ipsum</strong> &mdash; dolor sit amet</li>
-                <li><strong>Lorem ipsum</strong> &mdash; dolor sit amet</li>
-                <li><strong>Lorem ipsum</strong> &mdash; dolor sit amet</li>
-                <li><strong>Lorem ipsum</strong> &mdash; dolor sit amet</li>
-            </ul>
-        </div>
-
-        <div ng-controller="ProjectDetailController">
-            <h2 ng-bind="project.name"></h2>
-
-            <div ng-bind-html="project.content"></div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-4 col-xs-6" ng-repeat="project in projects">
-                <a href="#!/project/{{project.id}}" class="thumbnail" title="{{project.name}}">
-                    <img src="http://placehold.it/400x400&text={{project.name}}"
-                        alt="{{project.name}}" class="img-responsive">
-                </a>
-            </div>
-        </div>
     </div>
 
     <!-- scripts -->

@@ -1,0 +1,15 @@
+{
+  "name": "artist-portfolio",
+  "version": "0.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "connect": "^3.0.1",
+    "serve-static": "^1.2.3"
+  }
+}

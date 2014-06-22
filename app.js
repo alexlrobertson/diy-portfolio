@@ -2,19 +2,29 @@ var app = angular.module('mySite', ['ngRoute']);
 
 app.config([
     '$routeProvider',
-    function($routeProvider) {
+    '$locationProvider',
+    function($routeProvider, $locationProvider) {
         $routeProvider
-            .when('/!/', {
-                template:     '{{projects}}',
-                controller:   'ProjectController'
+            .when('/', {
+                templateUrl: 'project.html',
+                controller:  'ProjectController'
             })
-            .when('/!/project/:id', {
-                template:     '{{project}}',
-                controller:   'ProjectDetailController'
+            .when('/project/:id', {
+                templateUrl: 'project-detail.html',
+                controller:  'ProjectDetailController'
+            })
+            .when('/about-me', {
+                templateUrl: 'about.html'
+            })
+            .when('/contact', {
+                templateUrl: 'contact.html',
+                controller:  'FormController'
             })
             .otherwise({
-                redirectTo: '/!/'
+                redirectTo: '/'
             });
+
+        $locationProvider.hashPrefix('!');
 }]);
 
 app.controller('MainController', ['$scope', function ($scope) {
